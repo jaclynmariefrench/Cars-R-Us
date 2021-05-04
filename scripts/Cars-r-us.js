@@ -1,3 +1,12 @@
+import { Interior } from "./Interior.js"
+import { Orders } from "./orders.js"
+import { Paint } from "./PaintColor.js"
+import { Technology } from "./Technology.js"
+import { Wheels } from "./Wheels.js"
+
+
+
+
 export const Cars_r_us = () => {
     return `
     <h1>Cars R Us</h1>
@@ -5,19 +14,19 @@ export const Cars_r_us = () => {
     <article class="choices">
         <section class="choices__paintColor options">
             <h2>Paint Color</h2>
-            ?????
+            ${ Paint() }
         </section>
         <section class="choices__interior options">
             <h2>Interior</h2>
-            ??????
+            ${ Interior() }
         </section>
         <section class="choices__technology options">
             <h2>Technology</h2>
-            ?????
+            ${ Technology() }
         </section>
         <section class="choices__wheels options">
             <h2>Wheels</h2>
-            ?????
+            ${ Wheels() } 
         </section>
     </article>
     <article>
@@ -25,7 +34,7 @@ export const Cars_r_us = () => {
     </article>
     <article class="customOrder">
         <h2>Custom Car Orders</h2>
-        ?????
+        ${ Orders() }
     </article>
     `
 }

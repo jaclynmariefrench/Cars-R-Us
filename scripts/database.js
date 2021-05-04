@@ -34,6 +34,10 @@ export const getWheels = () => {
     return [...database.wheels];
 }
 
+export const getOrders = () => {
+    return [...database.customOrder];
+}
+
 // BUILDING ORDER
 export const setPaintColor = (id) => {
 database.orderBuilder.paintColorId = id;
