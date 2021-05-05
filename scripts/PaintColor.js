@@ -1,21 +1,13 @@
-import { getPaintColor } from "./database.js";
+import { getPaintColor, setPaintColor } from "./database.js";
 
-    // ADDING CLICK EVENT
+    // CHANGE EVENT
     document.addEventListener(
-        "click",
-        (clickEvent) => {
-            const itemClicked = clickEvent.target
-            if (itemClicked.id.startsWith("paints")) {
-                const [,paintId] = itemClicked.id.split("--")
-    
-                for (const paint of paintColor) {
-                    if (paint.id === parseInt(paintId)) {
-                        window.alert(`${paint.type} costs $${paint.price.toFixed(2)}`)
-                    }
-                }
+        "change",
+        (event) => {
+            if (event.target.id === "paints") {
+                setPaintColor(parseInt(event.target.value))
             }
-        }
-    )
+        });
 
 const paintColor = getPaintColor()
 
@@ -24,7 +16,7 @@ export const Paint = () => {
 
     const listItemArray = paintColor.map((paint) => {
         return `<div>
-                    <input type="radio" name="paint" id="paints--${paint.id}"/>${paint.type} $${paint.price.toFixed(2)}
+                    <input type="radio" name="paint" id="paints${paint.id}"/>${paint.type} $${paint.price.toFixed(2)}
         </div>`
     });
     

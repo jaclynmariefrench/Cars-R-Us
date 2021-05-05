@@ -1,20 +1,13 @@
-import { getTechnology } from "./database.js";
-// ADDING CLICK EVENT
+import { getTechnology, setTechology } from "./database.js";
+// CHANGE EVENT
 document.addEventListener(
-    "click",
-    (clickEvent) => {
-        const itemClicked = clickEvent.target
-        if (itemClicked.id.startsWith("technologys")) {
-            const [,technologyId] = itemClicked.id.split("--")
-
-            for (const technology of technologyDetail) {
-                if (technology.id === parseInt(technologyId)) {
-                    window.alert(`${technology.type} costs $${technology.price.toFixed(2)}`)
-                }
-            }
+    "change",
+    (event) => {
+        if (event.target.id === "technologys") {
+            setTechology(parseInt(event.target.value))
         }
-    }
-)
+    });
+
 
 const technologyDetail = getTechnology()
 
@@ -23,7 +16,7 @@ export const Technology = () => {
 
     const listItemArray = technologyDetail.map((technology) => {
         return `<div>
-                    <input type="radio" name="technology" id="technologys--${technology.id}"/>${technology.type} $${technology.price.toFixed(2)}
+                    <input type="radio" name="technology" id="technologys${technology.id}"/>${technology.type} $${technology.price.toFixed(2)}
         </div>`
     });
     
