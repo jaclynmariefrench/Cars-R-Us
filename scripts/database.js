@@ -22,7 +22,7 @@ const database = {
         { id: 4, type: "18-inch Pair Spoke Black", price: 1750.00 },
     ],
     customOrder: [
-        { id: 1, paintColorId: 2, interiorId: 3, technologyId: 4, wheelsId: 4},
+        { id: 1, paintColorId: 2, interiorId: 3, technologyId: 4, wheelsId: 4, timestamp: 1509750291},
     ],
     
     orderBuilder: {},
@@ -55,7 +55,7 @@ database.orderBuilder.paintColorId = id;
 export const setInterior = (id) => {
     database.orderBuilder.interiorId= id;
 }
-export const setTechology = (id) => {
+export const setTechnology = (id) => {
     database.orderBuilder.technologyId = id;
 }
 export const setWheels = (id) => {
@@ -67,6 +67,7 @@ export const addCustomOrder = () => {
     const newOrder = {...database.orderBuilder};
     newOrder.id = [...database.customOrder].pop().id +1;
     newOrder.timestamp = Date.now();
+    database.customOrder.push(newOrder);
     database.orderBuilder = {};
     document.dispatchEvent(new CustomEvent("stateChanged"));
 }

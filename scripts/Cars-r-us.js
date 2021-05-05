@@ -1,10 +1,16 @@
+import { addCustomOrder } from "./database.js"
 import { Interior } from "./Interior.js"
 import { Orders } from "./orders.js"
 import { Paint } from "./PaintColor.js"
 import { Technology } from "./Technology.js"
 import { Wheels } from "./Wheels.js"
 
-
+document.addEventListener("click", (clickEvent) => {
+    const itemClicked = clickEvent.target;
+    if (itemClicked.id.startsWith("orderButton")) {
+      addCustomOrder();
+    }
+  });
 
 
 export const Cars_r_us = () => {
