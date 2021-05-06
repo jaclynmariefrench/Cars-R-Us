@@ -3,7 +3,7 @@ import { getWheels, setWheels } from "./database.js";
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "wheels") {
+        if (event.target.name === "wheels") {
             setWheels(parseInt(event.target.value))
         }
     });
@@ -16,7 +16,7 @@ export const Wheels = () => {
 
     const listItemArray = wheelsDetail.map((wheels) => {
         return `<div>
-                    <input type="radio" name="wheels" id="wheels${wheels.id}"/>${wheels.type} $${wheels.price.toFixed(2)}
+                    <input type="radio" name="wheels" value="${wheels.id}"/>${wheels.type} $${wheels.price.toFixed(2)}
         </div>`
     });
     

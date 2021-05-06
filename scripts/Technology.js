@@ -3,7 +3,7 @@ import { getTechnology, setTechnology } from "./database.js";
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "technologys") {
+        if (event.target.name === "technology") {
             setTechnology(parseInt(event.target.value))
         }
     });
@@ -16,7 +16,7 @@ export const Technology = () => {
 
     const listItemArray = technologyDetail.map((technology) => {
         return `<div>
-                    <input type="radio" name="technology" id="technologys ${technology.id}"/>${technology.type} $${technology.price.toFixed(2)}
+                    <input type="radio" name="technology" value="${technology.id}"/>${technology.type} $${technology.price.toFixed(2)}
         </div>`
     });
     

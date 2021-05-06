@@ -4,7 +4,7 @@ import { getPaintColor, setPaintColor } from "./database.js";
     document.addEventListener(
         "change",
         (event) => {
-            if (event.target.id === "paints") {
+            if (event.target.name === "paint") {
                 setPaintColor(parseInt(event.target.value))
             }
         });
@@ -16,7 +16,7 @@ export const Paint = () => {
 
     const listItemArray = paintColor.map((paint) => {
         return `<div>
-                    <input type="radio" name="paint" id="paints${paint.id}"/>${paint.type} $${paint.price.toFixed(2)}
+                    <input type="radio" name="paint" value="${paint.id}"/>${paint.type} $${paint.price.toFixed(2)}
         </div>`
     });
     
