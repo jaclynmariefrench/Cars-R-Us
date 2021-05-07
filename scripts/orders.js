@@ -1,4 +1,4 @@
-import { getInterior, getOrders, getPaintColor, getTechnology, getWheels } from "./database.js"
+import { getCarType, getInterior, getOrders, getPaintColor, getTechnology, getWheels } from "./database.js"
 
 const buildOrderListItems = (order) => {
     
@@ -6,17 +6,17 @@ const buildOrderListItems = (order) => {
     const interiors = getInterior();
     const technologys = getTechnology();
     const wheels = getWheels();
+    const carType = getCarType();
 
     // FIND METHOD & TOTAL PRICE
     const foundPaint = paints.find((paint) => paint.id === order.paintColorId);
-    
-
     const foundInterior = interiors.find((interior) => interior.id === order.interiorId);
     const foundTechnology = technologys.find((technology) => technology.id === order.technologyId);
     const foundWheels = wheels.find((wheel) => wheel.id === order.wheelsId);
+    const foundCarType = carType.find((car)=> car.id === order.carTypeId)
     
     // ADDING UP PRICE
-    const totalPrice = foundPaint.price + foundInterior.price + foundTechnology.price + foundWheels.price
+    const totalPrice = (foundPaint.price + foundInterior.price + foundTechnology.price + foundWheels.price) * foundCarType.priceIncrease
 
     // DEFINE CURRENCY
     const costString = totalPrice.toLocaleString("en-US", {

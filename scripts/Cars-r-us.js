@@ -1,3 +1,4 @@
+import { CarType } from "./CarType.js"
 import { addCustomOrder } from "./database.js"
 import { Interior } from "./Interior.js"
 import { Orders } from "./orders.js"
@@ -37,6 +38,9 @@ export const Cars_r_us = () => {
     </article>
     <article>
         <button id="orderButton">Order Submit</button>
+    </article>
+    <article>
+        ${ CarType() }
     </article>
     <article class="customOrder">
         <h2>Custom Car Orders</h2>

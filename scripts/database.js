@@ -22,10 +22,18 @@ const database = {
         { id: 4, type: "18-inch Pair Spoke Black", price: 1750.00 },
     ],
     customOrder: [
-        { id: 1, paintColorId: 2, interiorId: 3, technologyId: 4, wheelsId: 4, timestamp: 1509750291},
+        { id: 1, paintColorId: 2, interiorId: 3, technologyId: 4, wheelsId: 4, carTypeId: 1, timestamp: 1509750291},
     ],
     
     orderBuilder: {},
+    carType: [
+        { id: 1, type: "Car", priceIncrease: 1 },
+        { id: 2, type: "SUV", priceIncrease: 1.5 },
+        { id: 3, type: "Truck", priceIncrease: 2.25},
+    ]
+}
+export const getCarType = () => {
+    return [...database.carType];
 }
 
 export const getPaintColor = () => {
@@ -60,6 +68,9 @@ export const setTechnology = (id) => {
 }
 export const setWheels = (id) => {
     database.orderBuilder.wheelsId = id;
+}
+export const setCarType = (id) => {
+     database.orderBuilder.carTypeId = id;
 }
 
 // STORING ORDERS 
